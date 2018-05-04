@@ -23,5 +23,14 @@ capture_block(&p)
 
 # capture_block(&p) { puts "This is the explicit block" } 
 # Results in error both block arg and actual block given
-
+'''
+capture_block(p)
 capture_block(p.to_proc)
+'''
+
+'''
+The & in capture_block(&p) does two things
+- Triggers a call to p to_proc method
+- Tells Ruby that the resulting Proc Object is serving as a code
+	block stand-in
+'''
