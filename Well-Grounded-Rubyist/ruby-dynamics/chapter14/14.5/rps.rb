@@ -20,6 +20,7 @@ module Games
         -1
       else
         raise ArgumentError, "Something's wrong"
+      end
     end
 
     def play
@@ -31,5 +32,6 @@ module Games
         false
       end
     end
+
   end
-end 
+end
