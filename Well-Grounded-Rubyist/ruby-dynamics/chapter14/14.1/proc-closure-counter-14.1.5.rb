@@ -1,6 +1,6 @@
 def make_counter
 	n = 0
-	return Proc.new { n += 1 }
+	Proc.new { n += 1 }
 end
 
 c = make_counter
