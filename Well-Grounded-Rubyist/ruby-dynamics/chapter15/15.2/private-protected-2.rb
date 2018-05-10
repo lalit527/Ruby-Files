@@ -20,3 +20,8 @@ david.name = "123David!! Bl%a9ck"
 raise "Problem" unless david.name == "David Black"
 puts "Name has been normalized."
 p david.private_methods.sort.grep(/normal/)
+
+"""
+whether it knows about a particular method with the respond_to? method.
+respond_to? only pertains to public methods
+"""
