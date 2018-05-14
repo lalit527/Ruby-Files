@@ -10,3 +10,10 @@ if obj.responds_to?("talk")
   obj.talk
 else
   puts "Sorry, the object doesn't understand talk messagee"
+
+"""
+send is a very broad concept, so a programmer might defined method 
+with name as send
+Ruby also has __send__ and public_send
+public_send:- Only public methods
+"""
