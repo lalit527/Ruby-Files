@@ -104,3 +104,5 @@ class Order < ActiveRecord::Base
   end
 end
 @order.to_pdf
+
+## Using Modules
