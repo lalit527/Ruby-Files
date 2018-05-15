@@ -33,3 +33,6 @@ before_save
 before_create 
 after_create 
 after_save
+
+## Nested Attributes
+accepts_nested_attributes_for :users
