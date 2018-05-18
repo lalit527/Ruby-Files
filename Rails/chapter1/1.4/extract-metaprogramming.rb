@@ -27,3 +27,27 @@ class PurchaseTest < Test::Unit::TestCase
     end
   end
 end
+
+"""
+To fix the below issue using Metaprogramming
+"""
+class Purchase < ActiveRecord::Base
+  STATUSES = %w(in_progress submitted approved shipped received)
+
+  validates_presence_of :status
+  validates_inclusion_of :status, :in => STATUSES
+
+  class << self
+    STATUSES.each do |status_name|
+      define_method "all_#{status_name}"
+        where(:status => status_name)
+    end
+  end
+
+  # Status Accessors
+  STATUSES.each do |status_name|
+    define_method "#{status_name}?"
+      status == status_name
+    end
+  end
+end
