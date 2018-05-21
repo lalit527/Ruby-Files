@@ -24,3 +24,12 @@ class User < ActiveRecord::Base
 
   serialize :heard_through, Hash 
 end
+
+## Serialized data
+# Notices represent the exceptions sent in from other applications
+class Notice < ActiveRecord::Base 
+  serialize :request, Hash
+  serialize :session, Hash 
+  serialize :environment, Hash 
+  serialize :backtrace, Array
+end
