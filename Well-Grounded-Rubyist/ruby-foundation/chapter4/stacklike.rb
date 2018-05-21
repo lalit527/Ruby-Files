@@ -11,9 +11,3 @@ module Stacklike
     stack.pop
   end
 end
-
-## IN the class we need to include this
-require "stacklike"
-class Stack
-  include Stacklike
-end
