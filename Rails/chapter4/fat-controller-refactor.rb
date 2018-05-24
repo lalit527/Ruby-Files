@@ -265,3 +265,30 @@ class Version < ActiveRecord::Base
     end
   end
 end
+
+"""
+Callback after creating record:
+"""
+class Version < ActiveRecord::Base
+  before_validation_on_create :set_version_number 
+  before_create :mark_related_links_not_current,
+                :if => :current_version
+  after_create :set_current_version_on_article
+  private
+  def set_current_version_on_article 
+    article.update_attribute :current_version_id, self.id 
+  end
+  def current_version 
+    article.current_version 
+  end
+
+  def set_version_number 
+    self.version = (current_version ? current_version.version : 0) + 1 
+  end
+
+  def mark_related_links_not_current
+    current_version.relateds.each do |rel| 
+      rel.update_attribute(:current, false)
+    end
+  end
+end
