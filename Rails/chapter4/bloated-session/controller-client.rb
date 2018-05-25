@@ -41,20 +41,24 @@ end
 
 """
 The order being used is stored in the session, and is being used in each step.
-Resource for the above appear as follows:
-resources :post do
-  collection do
-    post :shipping 
-    post :billing 
-    posft :payment
-  end
-end
 
-URL's as user process throught the order
-/orders/new 
-/orders/1/shipping 
-/orders/1/billing 
-/orders/1/payment 
-/orders/1
+<h2>Shipping Address</h2> 
+<%= form_for @order,
+            :url => shipping_order_path, 
+            :html => { :method => :post } do 
+              <%= form.label :shipping_address %> 
+              <%= form.text_field :shipping_address %> 
+              <%= form.label :shipping_city %> 
+              <%= form.text_field :shipping_city %> 
+              <%= form.label :shipping_state %> 
+              <%= form.text_field :shipping_state %> 
+              <%= form.label :shipping_zip %> 
+              <%= form.text_field :shipping_zip %>
+              <%= submit_tag %>
+              <%= form.hidden_field :billing_address %> 
+              <%= form.hidden_field :billing_city %> 
+              <%= form.hidden_field :billing_state %> 
+              <%= form.hidden_field :billing_zip %> 
+            <% end %>
 """
 
