@@ -52,3 +52,11 @@ puts "======================================================="
 puts "a" == "a"
 puts "a".eql?("a")
 puts "a".equal?("a")
+
+
+
+puts "======================================================="
+puts "++++++++++++++++String transform++++++++++++++++++++++="
+puts "======================================================="
+puts "Lalit Yadav".chomp ## remove newline if present
+puts "Lalit Yadav".chop ## will always remove last character
